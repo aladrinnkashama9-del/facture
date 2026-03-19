@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Facturation - Bureautique</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div id="facture-container" class="invoice-box">
+        <header class="header">
+            <div class="company-info">
+                <h1>BUREAUTIQUE HT</h1>
+                <p>Saisie, Impression, Déverrouillage de toutes sortes de Téléphones Android et iPhones</p>
+                <p>Réf: Kinshasa, ISP/Gombe, direction BETANI, vers 2ème Grande porte</p>
+                <p>Tél: +243 812 470 614, 993 901 630 | Email: aladarttech@gmail.com</p>
+                <p>NIF: 9787215490 | RCCM: BH/HT2025-00245</p>
+            </div>
+            <div class="invoice-details">
+                <h2>FACTURE</h2>
+                <p>Date: <span id="current-date"></span></p>
+                <p>N°: <span id="facture-numero" style="font-weight: bold;">000/HT/026</span></p>
+            </div>
+        </header>
+
+        <section class="client-section">
+            <p>Client : <input type="text" placeholder="Nom du client" class="input-client"></p>
+        </section>
+
+        <div class="rate-config">
+            <label>Taux du jour (1 USD = ... FC) : </label>
+            <input type="number" id="taux-change" value="2270" oninput="calculerTotal()">
+        </div>
+
+        <table id="invoice-table">
+            <thead>
+                <tr>
+                    <th>Dénomination</th>
+                    <th>Qté</th>
+                    <th>Prix Unit (FC)</th>
+                    <th>Total (FC)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="invoice-body">
+                <tr>
+                    <td><input type="text" value="Saisie"></td>
+                    <td><input type="number" class="qty" value="1" oninput="calculerTotal()"></td>
+                    <td><input type="number" class="price" value="2000" oninput="calculerTotal()"></td>
+                    <td class="line-total">2000</td>
+                    <td><button class="btn-delete" onclick="supprimerLigne(this)">X</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn-add" onclick="ajouterLigne()">+ Ajouter une ligne</button>
+
+        <footer class="totals">
+            <div class="total-row">
+                <span>TOTAL GÉNÉRAL (FC) :</span>
+                <span id="grand-total-fc">0</span> FC
+            </div>
+            <div class="total-row highlight">
+                <span>TOTAL GÉNÉRAL (USD) :</span>
+                <span id="grand-total-usd">0</span> $
+            </div>
+        </footer>
+
+        <div class="signature-section">
+            <p>La Direction</p><img src="sign.png" alt="">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-print" onclick="window.print()">Imprimer la facture</button>
+        <button class="btn-pdf" onclick="genererPDF()">Enregistrer en PDF</button>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+
+</footer>
+
+<p class="copyright">&copy; 2026 Alad'Art Tech - Tous droits réservés</p>
+    </footer>
+</div>
+</html>

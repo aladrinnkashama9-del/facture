@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carnet de Dette Numérique</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<header class="header">
+            <div class="company-info">
+                <h1>BUREAUTIQUE HT</h1>
+                <p>Saisie, Impression, Déverrouillage de toutes sortes de Téléphones Android et iPhones</p>
+                <p>Réf: Kinshasa, ISP/Gombe, direction BETANI, vers 2ème Grande porte</p>
+                <p>Tél: +243 812 470 614, 993 901 630 | Email: aladarttech@gmail.com</p>
+                <p>NIF: 9787215490 | RCCM: BH/HT2025-00245</p>
+            </div>
+            <div class="invoice-details">
+                <h2>FACTURE</h2>
+                <p>Date: <span id="current-date"></span></p>
+                <p>N°: <span id="facture-numero" style="font-weight: bold;">000/HT/026</span></p>
+            </div>
+        </header>
+<body>
+    <div class="container">
+        <h1>📓 Carnet de Dette</h1>
+        
+        <div class="header-info">
+            <input type="text" id="nomClient" placeholder="Nom du Client">
+            <div id="dateTime">Chargement date...</div>
+        </div>
+
+        <table id="debtTable">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Dénomination</th>
+                    <th>Qté</th>
+                    <th>Prix Unit (Fc)</th>
+                    <th>Prix Tot (Fc)</th>
+                    <th>Payé (Fc)</th>
+                    <th>Reste (Fc)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="4">TOTAL GÉNÉRAL</td>
+                    <td id="totalPrix">0</td>
+                    <td id="totalPaye">0</td>
+                    <td id="totalReste">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+ 
+       <div class="no-print">
+            <button onclick="addRow()" class="btn-add">➕ Ajouter une ligne</button>
+            <button onclick="window.print()" style="padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            🖨️ Imprimer ou Sauvegarder en PDF
+            </button>
+        </div>
+    <div class="signature-section">
+            <p>La Direction</p><img src="sign.png" alt="">
+        </div>
+    </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
